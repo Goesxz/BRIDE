@@ -1,4 +1,4 @@
 {
-  "installCommand": "npm install --include=dev",
+  "installCommand": "npm install --include=dev && npx esbuild service",
   "buildCommand": "npx vite build"
 }
