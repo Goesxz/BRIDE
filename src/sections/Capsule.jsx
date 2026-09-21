@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, LockOpen } from "lucide-react";
+import { Lock, Unlock } from "lucide-react";
 import { capsule } from "../data/capsule";
 import { useCapsuleUnlock } from "../hooks/useCapsuleUnlock";
 
@@ -36,7 +36,7 @@ export default function Capsule() {
             transition={{ duration: 1.6 }}
             className="flex flex-col items-center max-w-[560px]"
           >
-            <LockOpen size={18} color="#ffffff" strokeWidth={1.2} className="mb-6" />
+            <Unlock size={18} color="#ffffff" strokeWidth={1.2} className="mb-6" />
             <p className="font-display text-white font-light" style={{ fontSize: "clamp(24px, 3.4vw, 34px)" }}>
               {capsule.unlockedTitle}
             </p>
