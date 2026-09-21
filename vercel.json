@@ -1,5 +1,4 @@
 {
-  "installCommand": "npm install --force --ignore-scripts=false",
+  "installCommand": "npm install --include=dev",
   "buildCommand": "npx vite build"
 }
-
