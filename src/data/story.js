@@ -8,13 +8,13 @@ export const timeline = [
     title: "Numa célula da igreja",
     description:
       "Foi ali que nos conhecemos. Depois, passamos a servir no mesmo lugar — sem pressa, sem nome ainda pro que estava começando.",
-    image: "/media/photos/photo-celula.jpg",
+    image: "/media/photos/photo-celula.png",
   },
   {
     period: "Fim de ano",
     title: "A aproximação",
     description: "Comecei a visitar a casa dela. Devagar, mas cada vez mais claro.",
-    image: "/media/photos/photo-aproximação.jpg",
+    image: "/media/photos/photo-aproximação.png",
   },
   {
     period: "A virada",
