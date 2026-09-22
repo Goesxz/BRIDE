@@ -3,7 +3,8 @@ import { useState } from "react";
 import { couple } from "../data/couple";
 
 export default function Hero() {
-  const [imgError, setImgError] = useState(false);
+  const [mobileImgError, setMobileImgError] = useState(false);
+  const [desktopImgError, setDesktopImgError] = useState(false);
 
   const scrollToStory = () => {
     document.getElementById("historia")?.scrollIntoView({ behavior: "smooth" });
@@ -11,12 +12,23 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-screen-safe overflow-hidden bg-black">
-      {!imgError && (
+      {/* Foto vertical — só aparece abaixo do breakpoint md (celular) */}
+      {!mobileImgError && (
+        <img
+          src="/media/photos/photo-responsive-hero.jpg"
+          alt=""
+          onError={() => setMobileImgError(true)}
+          className="absolute inset-0 w-full h-full object-cover grayscale block md:hidden"
+        />
+      )}
+
+      {/* Foto horizontal — só aparece a partir do breakpoint md (desktop) */}
+      {!desktopImgError && (
         <img
           src="/media/photos/photo-hero.jpg"
           alt=""
-          onError={() => setImgError(true)}
-          className="absolute inset-0 w-full h-full object-cover grayscale"
+          onError={() => setDesktopImgError(true)}
+          className="absolute inset-0 w-full h-full object-cover grayscale hidden md:block"
         />
       )}
       {/* Gradiente para garantir legibilidade do texto sobre a foto */}
