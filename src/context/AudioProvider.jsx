@@ -2,10 +2,10 @@ import { createContext, useContext, useRef, useState } from "react";
 
 const AudioContext = createContext(null);
 
-// Caminho fixo — basta colocar o arquivo em public/media/audio/trilha.mp3
+// Caminho fixo — basta colocar o arquivo em public/media/audio/cheiro de mar.mp3
 // (veja public/media/README.md). Enquanto o arquivo não existir, o toggle
 // simplesmente falha silenciosamente, sem quebrar o site.
-const TRACK_SRC = "/media/audio/trilha.mp3";
+const TRACK_SRC = "/media/audio/cheiro de mar.mp3";
 
 export function AudioProvider({ children }) {
   const audioRef = useRef(null);
