@@ -4,7 +4,9 @@ import { couple } from "../data/couple";
 
 export default function FinalSection() {
   const [imgError, setImgError] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const reduceMotion = useReducedMotion();
+  const useVideo = !videoError && !reduceMotion;
 
   const photoTransition = reduceMotion
     ? { duration: 0.6 }
@@ -28,18 +30,36 @@ export default function FinalSection() {
 
   return (
     <footer className="relative w-full h-screen-safe min-h-[100svh] bg-black overflow-hidden">
-      {/* Fotografia — o ambiente visual da seção */}
-      {!imgError && (
-        <motion.img
-          src="/media/photos/final.jpg"
-          alt=""
-          onError={() => setImgError(true)}
-          initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.06 }}
+      {/* Cena final — vídeo como ambiente visual, com foto como fallback */}
+      {useVideo ? (
+        <motion.video
+          src="/media/videos/video-finalsection.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/media/photos/final.jpg"
+          onError={() => setVideoError(true)}
+          initial={{ opacity: 0, scale: 1.06 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={photoTransition}
           className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 brightness-90"
         />
+      ) : (
+        !imgError && (
+          <motion.img
+            src="/media/photos/final.jpg"
+            alt=""
+            onError={() => setImgError(true)}
+            initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.06 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={photoTransition}
+            className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 brightness-90"
+          />
+        )
       )}
 
       {/* Tratamento fotográfico — vinheta + gradiente direcional (canto onde o texto vive) */}
