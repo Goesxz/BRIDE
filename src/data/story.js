@@ -28,14 +28,14 @@ export const timeline = [
     title: "O início do namoro",
     description:
       "Um culto na Lagoinha Alphaville. Um pedido. Uma oração juntos, consagrando tudo o que estava começando.",
-    image: "/media/photos/historia-04.jpg",
+    image: "/media/photos/photo-inicio.jpeg",
   },
   {
     period: "Hoje",
     title: "E chegamos até aqui",
     description:
       "Nossa casa só vai sair do lugar se for da direção de Deus. É essa a base do que vem a seguir.",
-    image: "/media/photos/historia-05.jpg",
+    image: "/media/photos/photo-hoje.jpeg",
   },
 ];
 
