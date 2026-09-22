@@ -8,13 +8,13 @@ export const timeline = [
     title: "Numa célula da igreja",
     description:
       "Foi ali que nos conhecemos. Depois, passamos a servir no mesmo lugar — sem pressa, sem nome ainda pro que estava começando.",
-    image: "/media/photos/historia-01.jpg",
+    image: "/media/photos/photo-celula.jpg",
   },
   {
     period: "Fim de ano",
     title: "A aproximação",
     description: "Comecei a visitar a casa dela. Devagar, mas cada vez mais claro.",
-    image: "/media/photos/historia-02.jpg",
+    image: "/media/photos/photo-aproximação.jpg",
   },
   {
     period: "A virada",
@@ -55,3 +55,4 @@ export const transitionLines = [
   "de todas as histórias...",
   "existe uma coisa que eu ainda preciso te perguntar.",
 ];
+
