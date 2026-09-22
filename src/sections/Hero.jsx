@@ -11,7 +11,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full h-screen-safe overflow-hidden bg-black">
+    <section id="hero" className="relative w-full h-screen-safe overflow-hidden bg-black">
       {/* Foto vertical — só aparece abaixo do breakpoint md (celular) */}
       {!mobileImgError && (
         <img
