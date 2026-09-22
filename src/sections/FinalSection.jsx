@@ -45,6 +45,7 @@ export default function FinalSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={photoTransition}
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 brightness-90"
         />
       ) : (
@@ -52,6 +53,7 @@ export default function FinalSection() {
           <motion.img
             src="/media/photos/final.jpg"
             alt=""
+            aria-hidden="true"
             onError={() => setImgError(true)}
             initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.06 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -78,21 +80,20 @@ export default function FinalSection() {
         }}
       />
 
-      {/* Carimbo editorial — data, canto superior direito */}
+      {/* Carimbo editorial — data, canto superior direito, respeitando notch/status bar */}
       <motion.p
         initial={{ opacity: 0, y: -6 }}
         whileInView={{ opacity: 0.55, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={dateTransition}
-        className="absolute z-10 top-6 right-6 sm:top-8 sm:right-10 text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-neutral-300 font-sans text-right"
+        className="absolute z-10 right-6 sm:right-10 text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-neutral-300 font-sans text-right"
+        style={{ top: "max(1.5rem, calc(env(safe-area-inset-top) + 0.75rem))" }}
       >
         {couple.proposalDateLabel}
       </motion.p>
 
       {/* Bloco de fecho — nome + "Para sempre.", ancorado à margem inferior esquerda */}
-      <div
-        className="absolute z-10 left-6 right-6 sm:left-10 sm:right-auto bottom-[max(2.5rem,env(safe-area-inset-bottom))] sm:bottom-14 flex items-stretch gap-4 sm:gap-6 max-w-[92vw] sm:max-w-[60vw]"
-      >
+      <div className="absolute z-10 left-6 right-6 sm:left-10 sm:right-auto bottom-[max(2.5rem,env(safe-area-inset-bottom))] sm:bottom-14 flex items-stretch gap-4 sm:gap-6 max-w-[92vw] sm:max-w-[60vw]">
         <motion.span
           initial={{ scaleY: 0 }}
           whileInView={{ scaleY: 1 }}
@@ -109,8 +110,11 @@ export default function FinalSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={nameTransition}
-            className="font-display font-light text-white tracking-[0.01em] leading-[1.05] whitespace-nowrap"
-            style={{ fontSize: "clamp(2.75rem, 11vw, 6.25rem)" }}
+            className="font-display font-light text-white tracking-[0.01em] leading-[1.08] break-words"
+            style={{
+              fontSize: "clamp(2.1rem, 10vw, 6.25rem)",
+              textWrap: "balance",
+            }}
           >
             {couple.him} &amp; {couple.her}
           </motion.h2>
